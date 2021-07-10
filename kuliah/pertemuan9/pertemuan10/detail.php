@@ -1,5 +1,10 @@
 <?php
+require 'function.php';
+//mengambil id dair url
+$id = $_GET['id'];
 
+//query mahasiswa berdasarkan id
+$mhs = query("SELECT * FROM mahasiswa WHERE id = $id");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +19,12 @@
 <body>
   <h2>detail mahasiswa </h2>
   <ul>
-    <li>NPM</li>
-    <li>nama</li>
-    <li>alamat</li>
+    <li><img src="img/<?= $mhs['gambar']; ?>"></li>
+    <li>NPM :<?= $mhs['npm']; ?></li>
+    <li>nama :<?= $mhs['nama']; ?></li>
+    <li>alamat :<?= $mhs['alamat']; ?></li>
+    <li>jurusan : <?= $mhs['jurusan']; ?></li>
+    <li>jenis kelamin : <?= $mhs['jenis_kelamin']; ?></li>
     <li><a href="hapsu">hapus</a> | <a href="edit">edit</a></li>
     <li><a href="latihan3.php">kembali ke daftar mahasiswa</a></li>
   </ul>
